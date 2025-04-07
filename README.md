@@ -1,7 +1,25 @@
-Explicação do Código
-Cache (memo): O parâmetro memo é um dicionário que armazena os resultados já calculados. Ele é inicializado como None e criado como {} na primeira chamada, permitindo que o cache persista entre as chamadas recursivas.
-Verificação no Cache: Antes de calcular, verificamos se n já está em memo. Se sim, retornamos o valor armazenado em O(1).
-Casos Base: Definimos F(0) = 0 e F(1) = 1 diretamente.
-Recursão com Memoization: Para n > 1, calculamos F(n) como a soma de F(n-1) e F(n-2), armazenando o resultado em memo[n] antes de retorná-lo.
-Resultado Esperado
-Para n = 10, a saída será 55, pois a sequência de Fibonacci é: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.
+Implementação do Algoritmo
+A solução utiliza uma abordagem recursiva com memoization, armazenando resultados intermediários em uma estrutura de dados de acesso O(1). Abaixo, detalhamos os componentes principais da implementação:
+
+Estrutura do Código
+1. Cache de Resultados (memo)
+Descrição: O parâmetro memo é um dicionário que armazena os valores já calculados da sequência de Fibonacci.
+Inicialização: Configurado como None por padrão e inicializado como um dicionário vazio ({}) na primeira chamada, garantindo persistência entre as chamadas recursivas.
+Objetivo: Evitar cálculos redundantes, otimizando a eficiência.
+2. Verificação no Cache
+Funcionamento: Antes de realizar qualquer cálculo, o algoritmo verifica se o valor de n já está presente no cache (memo).
+Eficiência: Caso encontrado, o valor é retornado diretamente em tempo constante O(1), eliminando a necessidade de reprocessamento.
+3. Casos Base
+Definição:
+F(0) = 0
+F(1) = 1
+Implementação: Esses valores são retornados imediatamente, servindo como ponto de parada para a recursão.
+4. Recursão com Memoization
+Lógica: Para n > 1, o valor de F(n) é calculado como F(n-1) + F(n-2).
+Armazenamento: O resultado é salvo em memo[n] antes de ser retornado, garantindo que cada subproblema seja resolvido apenas uma vez.
+Resultados Esperados
+Para um exemplo prático, considere n = 10:
+
+Saída: 55
+Sequência: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+Benefício da Memoization: Sem o cache, o cálculo de F(10) exigiria cerca de 177 chamadas recursivas. Com memoization, esse número é reduzido a aproximadamente 10, demonstr Obtendo uma melhoria significativa na performance.
